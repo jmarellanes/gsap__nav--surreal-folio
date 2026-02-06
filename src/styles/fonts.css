@@ -1,0 +1,19 @@
+@font-face {
+  font-family: "Flaviotte";
+  src:
+    local("Flaviotte"),
+    url("../assets/fonts/flaviotte.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SuperDuper";
+  src:
+    local("SuperDuper"),
+    url("../assets/fonts/superduper-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

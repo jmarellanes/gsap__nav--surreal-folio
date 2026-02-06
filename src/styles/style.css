@@ -1,3 +1,5 @@
+@import "./fonts.css";
+
 @layer reset {
   *,
   *::before,
@@ -69,5 +71,227 @@
   textarea,
   select {
     font: inherit;
+  }
+}
+
+:root {
+  --color-bg: #141412;
+  --color-text-main: #cdc6be;
+  --color-accent: #c03f13;
+
+  --font-body: "SuperDuper", sans-serif;
+  --font-display: "Flaviotte", sans-serif;
+
+  --z-content: 0;
+  --z-nav: 2;
+  --z-overlay: 1;
+}
+
+@layer base {
+  html,
+  body {
+    background-color: var(--color-text-main);
+    block-size: 100%;
+    font-family: var(--font-body);
+  }
+
+  a {
+    color: var(--color-text-main);
+    text-decoration: none;
+  }
+
+  img {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+}
+
+@layer layout {
+  .website-content {
+    background: var(--color-text-main);
+    inset: 0;
+    padding: 4rem 2rem 4rem;
+    position: relative;
+    z-index: var(--z-content);
+  }
+
+  .hero-img {
+    block-size: 100%;
+    border: 2px solid var(--color-bg);
+    inline-size: 100%;
+  }
+
+  nav {
+    --nav-scale: 1;
+
+    align-items: center;
+    color: var(--color-text-main);
+    display: flex;
+    inset-block-start: 0;
+    inset-inline: 0;
+    justify-content: space-between;
+    mix-blend-mode: difference;
+    padding: 1.5rem 2rem 2.5rem;
+    position: relative;
+    z-index: var(--z-nav);
+
+    &::after {
+      background-color: var(--color-text-main);
+      bottom: 0;
+      content: "";
+      height: 1px;
+      left: 0;
+      position: absolute;
+      transform-origin: right center;
+      transform: scaleX(var(--nav-scale));
+      width: 100%;
+    }
+
+    & > div {
+      flex: 1;
+    }
+  }
+
+  .overlay {
+    background: var(--color-bg);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    display: flex;
+    inset: 0;
+    position: fixed;
+    will-change: clip-path;
+  }
+
+  .overlay-menu {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    inset: 0;
+    justify-content: center;
+    position: fixed;
+    z-index: 1;
+  }
+}
+
+@layer components {
+  .info {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  .logo {
+    font-family: var(--font-body);
+    text-align: center;
+
+    & a {
+      color: var(--color-text-main);
+      font-size: clamp(2rem, 8vw, 3.5rem);
+      line-height: 1;
+      text-transform: uppercase;
+    }
+  }
+
+  .toggle-btn {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .burger {
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    outline: none;
+    padding: 1.75em 2em 1.5em 2em;
+    position: relative;
+
+    &::before,
+    &::after {
+      background: var(--color-text-main);
+      block-size: 2px;
+      content: "";
+      inline-size: 40px;
+      position: absolute;
+      transition: transform 250ms ease-out;
+      will-change: transform;
+    }
+
+    &::before {
+      transform: translateY(-3px);
+    }
+
+    &::after {
+      transform: translateY(3px);
+    }
+
+    &.active,
+    &[aria-expanded="true"] {
+      &::before {
+        transform: translateY(0) rotate(45deg);
+      }
+
+      &::after {
+        transform: translateY(0) rotate(-45deg);
+      }
+    }
+  }
+
+  .menu-item {
+    align-items: center;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    justify-content: center;
+
+    & a {
+      font-family: var(--font-display);
+      font-size: clamp(6.5rem, 22vw, 10rem);
+      line-height: 1;
+      position: relative;
+      text-align: center;
+      text-transform: uppercase;
+      transition: letter-spacing 250ms ease-out;
+      will-change: transform, letter-spacing;
+
+      &:hover {
+        letter-spacing: 0.04em;
+      }
+
+      &.active::after {
+        content: "";
+        position: absolute;
+        top: 35%;
+        left: 0;
+        transform: translateY(-50%);
+        background: var(--color-accent);
+        inline-size: var(--line-width, 0%);
+        block-size: 14px;
+        transform-origin: right center;
+      }
+    }
+  }
+
+  .sub-nav {
+    position: absolute;
+    inset-block-end: 5%;
+    inset-inline-start: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .sub-nav ul {
+    display: flex;
+    gap: 0.5em;
+    list-style: none;
+  }
+
+  .sub-nav li,
+  .sub-nav a {
+    font-family: var(--font-body);
+    font-size: 2rem;
+    color: var(--color-text-main);
   }
 }

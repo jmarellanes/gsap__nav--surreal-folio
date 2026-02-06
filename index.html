@@ -4,21 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="author" content="Jose Arellane" />
+    <meta name="author" content="Jose Arellanes" />
 
-    <title>Title Description Here</title>
-    <meta name="description" content="Site Description Here" />
+    <title>"The Surreal Fold" — Fluid Typographic Menu</title>
+    <meta
+      name="description"
+      content="A bold, high-impact navigation concept. The reveal sequence is orchestrated with a reversible GSAP Timeline, featuring directional line animations and snappy playback control."
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap" rel="stylesheet" />
+    <link rel="preload" href="src/assets/fonts/flaviotte.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="src/assets/fonts/superduper-regular.woff2" as="font" type="font/woff2" crossorigin />
 
     <link rel="stylesheet" href="src/styles/style.css" />
     <script defer src="src/scripts/main.js" type="module"></script>
   </head>
 
   <body>
-    <p>MY Website</p>
+    <nav>
+      <div class="info">
+        <p>Neverland</p>
+      </div>
+
+      <div class="logo">
+        <a href="#" aria-label="Home">Surreal Folio</a>
+      </div>
+
+      <div class="toggle-btn">
+        <button class="burger" aria-label="Toggle Menu" aria-expanded="false"></button>
+      </div>
+    </nav>
+
+    <main class="website-content">
+      <div class="hero-img">
+        <img src="./src/assets/images/hero.webp" alt="Hero image" width="1920" height="1080" />
+      </div>
+    </main>
+
+    <div class="overlay">
+      <div class="overlay-menu">
+        <ul class="menu-list" role="list">
+          <li class="menu-item">
+            <a href="#" class="active" aria-current="page">Home</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="#">Work</a>
+          </li>
+
+          <li class="menu-item">
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sub-nav">
+        <ul role="list">
+          <li><a href="#">Twitter</a></li>
+          <li aria-hidden="true">.</li>
+          <li><a href="#">Instagram</a></li>
+          <li aria-hidden="true">.</li>
+          <li><a href="#">Dribbble</a></li>
+          <li aria-hidden="true">.</li>
+          <li><a href="#">Behance</a></li>
+        </ul>
+      </div>
+    </div>
   </body>
 </html>
