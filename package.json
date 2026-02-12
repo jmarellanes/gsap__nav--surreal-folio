@@ -1,8 +1,9 @@
 {
-  "name": "starter__vanilla",
+  "name": "gsap-nav-surreal-folio",
   "type": "module",
   "version": "0.0.0",
   "private": true,
+  "description": "The Surreal Fold - Fluid typographic menu",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
