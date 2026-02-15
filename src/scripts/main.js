@@ -11,10 +11,18 @@ const subNav = overlay.querySelector(".sub-nav");
 gsap.set(menuItems, { y: 225 });
 gsap.set(activeItem, { "--line-width": "0%" });
 
-const timeline = gsap.timeline({ paused: true, reversed: true });
+const timeline = gsap.timeline({
+  paused: true,
+  reversed: true,
+  onStart() {
+    body.style.overflow = "hidden";
+  },
+  onReverseComplete() {
+    body.style.overflow = "";
+  },
+});
 
 timeline
-  .to(body, { overflow: "hidden" }, 0)
   .to(overlay, {
     duration: 1.5,
     clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
@@ -25,7 +33,7 @@ timeline
     "--nav-scale": 0,
     "duration": 0.8,
     "ease": "power2.inOut",
-  }, "-=1.2") //
+  }, "-=1.2")
 
   .to(menuItems, {
     duration: 1.2,
