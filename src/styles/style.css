@@ -37,6 +37,7 @@
   body {
     min-block-size: 100vh;
     line-height: 1.6;
+    scrollbar-gutter: stable;
   }
 
   h1,
