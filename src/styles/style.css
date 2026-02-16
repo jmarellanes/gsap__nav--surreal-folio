@@ -35,9 +35,14 @@
   }
 
   body {
-    min-block-size: 100vh;
     line-height: 1.6;
+    overflow-x: hidden;
     scrollbar-gutter: stable;
+    width: 100dvw;
+  }
+
+  ::-webkit-scrollbar {
+    width: 2px;
   }
 
   h1,
